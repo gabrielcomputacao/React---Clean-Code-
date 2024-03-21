@@ -28,3 +28,41 @@ handle, on
     Ex: handleCreateNewToDo
 
     on = Quando eu recebo uma função, passada por parametro, sempre usar on, seguindo o exemplo do html onClick, onFocus
+
+4º = Composição vs Customização (Configuracao)
+
+  ->  Configuracao
+        Muda o componente visualmente, como icon, label, criando possiveis combinações de um mesmo componente ... Não é muito legal fazer 
+
+        <Input 
+            label='nome'
+            icon='pessoa'
+            messageError='Preencha o input'
+        />
+
+   -> Pattern Composition
+        Ao inves de acrescentar props com variações dentro do component, criar componentes separados para cada necessidade, como label, icon, messageError
+        Exemplo:
+
+            <Input.Root>
+                <Input.label>
+                    <Input.icon></Input.icon>
+                </Input.label>
+            </Input.Root>
+
+
+5º Condicionais no render
+
+    Tentar deixar o html o menos dependente de operações javascript possivel
+
+    Exemplo:
+
+    const hasMessage = clients. lenght > 0
+
+    E no codigo usar a condicional assim, dentro do html:
+
+    { hasMessage && <div> Clientes  </div>  }
+
+    OBS: Não fazer direto com o javascript dentro do html
+
+    OBS: tentar manter o maximo de javascript antes do return do componente
