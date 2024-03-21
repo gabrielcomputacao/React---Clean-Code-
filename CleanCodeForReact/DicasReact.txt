@@ -1,0 +1,30 @@
+1º = Quando separar um componente em componentes menores?
+
+ 1 - Quando eu tenho algo repetitivo
+ 2 - Quando eu consigo isolar algo do seu contexto sem comprometer o comportamento normal
+
+    2.1 - Quando se tem blocos de códigos somente com html nao necessariamente precisamos separar esse bloco em components
+
+    OBS:  Cada componente possui um fluxo de renderização proprio, se a gente separa em pequenos componentes a chance do ganho de performace pelo algoritmo do react é maior
+
+    Dica: Quando se tem um hook ou uma variavel que está associada apenas a parte do codigo, provavelmente a variavel e o bloco de codigo consigam virar um componente separado
+
+    Dica: Olhar para partes de variaveis,funcoes e hooks para ver se o componente está grande e se é preciso dividir ele em partes menores
+
+2º = Componentes puros
+
+    São componentes que somente recebendo suas props ele consegue se virar e funcionar normalmente, ele não tem nenhum vinculo com chamadas de apis externas por exemplo
+
+    Dica: Cuidado quando for separar um componente react para que nao leve a logica junto e faça com que esse componente se torne inutilizavel em outras partes do codigo
+
+    Dica: Ver se é possível mover ou separar o componente sem dar error e mantendo o comportament, se for possível ai sim esse é um componente desacoplado
+
+
+3º = Funções e Eventos
+
+handle, on
+
+    handle = sempre que uma funcao é usada sendo disparada por uma ação (click,submit) do usuario, usar handle
+    Ex: handleCreateNewToDo
+
+    on = Quando eu recebo uma função, passada por parametro, sempre usar on, seguindo o exemplo do html onClick, onFocus
